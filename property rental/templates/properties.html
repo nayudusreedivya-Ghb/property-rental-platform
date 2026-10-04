@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Properties</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>Property Rental Platform</h2>
+
+    <a href="/">Home</a>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Available Properties</h1>
+
+
+    <form action="/properties" method="GET" class="search-box">
+
+        <input
+            type="text"
+            name="location"
+            value="{{ location }}"
+            placeholder="Search by location"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+
+    <div class="property-grid">
+
+        {% for property in properties %}
+
+        <div class="property-card">
+
+            <div class="property-image">
+                🏠
+            </div>
+
+            <h3>
+                {{ property["title"] }}
+            </h3>
+
+            <p>
+                📍 {{ property["location"] }}
+            </p>
+
+            <p>
+                {{ property["property_type"] }}
+            </p>
+
+            <p>
+                🛏 {{ property["bedrooms"] }} Bedrooms
+            </p>
+
+            <h3>
+                ₹{{ property["price"] }}/month
+            </h3>
+
+            <a
+                href="/property/{{ property['id'] }}"
+                class="btn"
+            >
+                View Details
+            </a>
+
+        </div>
+
+        {% else %}
+
+        <p>
+            No properties found.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

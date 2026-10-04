@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Property Details</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>Property Rental Platform</h2>
+
+    <a href="/properties">Back to Properties</a>
+
+</div>
+
+
+<div class="details">
+
+    <div class="large-image">
+        🏠
+    </div>
+
+
+    <h1>
+        {{ property["title"] }}
+    </h1>
+
+
+    <h2>
+        ₹{{ property["price"] }}/month
+    </h2>
+
+
+    <p>
+        <b>Location:</b>
+        {{ property["location"] }}
+    </p>
+
+
+    <p>
+        <b>Property Type:</b>
+        {{ property["property_type"] }}
+    </p>
+
+
+    <p>
+        <b>Bedrooms:</b>
+        {{ property["bedrooms"] }}
+    </p>
+
+
+    <p>
+        <b>Description:</b>
+        {{ property["description"] }}
+    </p>
+
+
+    <a
+        href="/inquiry/{{ property['id'] }}"
+        class="btn"
+    >
+        Contact Owner
+    </a>
+
+</div>
+
+</body>
+
+</html>

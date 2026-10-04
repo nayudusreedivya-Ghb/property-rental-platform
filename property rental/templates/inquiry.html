@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Rental Inquiry</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Rental Inquiry</h1>
+
+    <h2>
+        {{ property["title"] }}
+    </h2>
+
+
+    <form method="POST">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>Phone Number</label>
+
+        <input
+            type="text"
+            name="phone"
+            placeholder="Enter phone number"
+            required
+        >
+
+
+        <label>Message</label>
+
+        <textarea
+            name="message"
+            placeholder="I am interested in this property..."
+            required
+        ></textarea>
+
+
+        <button type="submit">
+            Send Inquiry
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

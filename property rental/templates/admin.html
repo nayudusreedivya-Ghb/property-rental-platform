@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>Admin Dashboard</h2>
+
+    <a href="/">Home</a>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Rental Inquiries</h1>
+
+
+    {% if inquiries %}
+
+    <table>
+
+        <tr>
+
+            <th>Name</th>
+
+            <th>Email</th>
+
+            <th>Phone</th>
+
+            <th>Property</th>
+
+            <th>Message</th>
+
+        </tr>
+
+
+        {% for inquiry in inquiries %}
+
+        <tr>
+
+            <td>
+                {{ inquiry["name"] }}
+            </td>
+
+            <td>
+                {{ inquiry["email"] }}
+            </td>
+
+            <td>
+                {{ inquiry["phone"] }}
+            </td>
+
+            <td>
+                {{ inquiry["title"] }}
+            </td>
+
+            <td>
+                {{ inquiry["message"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>
+        No rental inquiries yet.
+    </p>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
